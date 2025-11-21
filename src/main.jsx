@@ -2,13 +2,13 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from "react-router-dom"
 import './index.css'
-import Home from './assets/Pages/Home'
+import Banner from './assets/Pages/Banner'
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <Home />
+      <Banner />
     </BrowserRouter>
   </StrictMode>,
 )
