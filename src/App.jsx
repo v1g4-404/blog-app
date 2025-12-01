@@ -1,23 +1,29 @@
-import { Routes, Route } from 'react-router-dom';
-import Home from "../src/assets/Pages/Home";
-import Banner from "../src/assets/Pages/Banner";
-import Detail from "../src/assets/Pages/Detail";
-import Contact from "../src/assets/Pages/Contact";
+import { Routes, Route, Link } from 'react-router-dom';
+import Home from "../src/Pages/Home";
+import Banner from "../src/Pages/Banner";
+import Detail from "../src/Pages/Detail";
+// import Contact from "../src/Pages/Contact";
 
-function App() {
+export default function App() {
   return (
     <>
-      <Home />
+
+      <Banner />
 
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/posts/:id" element={<Detail />} />
-          <Route path="/contact" element={<Contact />} />
+        <Route path='/'>
+          <Route index={true} element={<Home />} />
+          <Route path='posts/:id' element={<Detail />} />
         </Route>
+        {/* <Route path='contact' element={<Contact />} /> */}
+
       </Routes>
     </>
-  );
+  )
 }
 
-export default App
+{/* <Route path="/page1">
+  <Route index={true} element={<Page1 />} />
+  <Route path="/page1/detailsA" element={<Page1DetailsA />} />
+  <Route path="/page1/detailsB" element={<Page1DetailsB />} />
+</Route> */}

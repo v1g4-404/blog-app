@@ -1,4 +1,5 @@
-import { posts } from '../../Data/posts'
+import { Link } from 'react-router-dom'
+import { posts } from '../Data/posts'
 
 export default function PostList() {
   return (
@@ -6,7 +7,7 @@ export default function PostList() {
       <ul className='block mt-4 mb-4 pl-10'>
         {posts.map((post) => (
           <li className='flex-col' key={post.id}>
-            <a href={`posts/${posts / post.id}`} className='cursor-pointer'>
+            <Link to={`posts/${post.id}`} className='cursor-pointer'>
               <div className="p-4 mb-8 border max-w-2xl mx-auto flex-col">
                 <div className='flex justify-between'>
                   <p className="text-[#888] text-xs">
@@ -28,7 +29,7 @@ export default function PostList() {
                   dangerouslySetInnerHTML={{ __html: post.content }}
                 />
               </div>
-            </a>
+            </Link>
           </li>
         ))
         }

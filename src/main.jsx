@@ -1,14 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from "react-router-dom"
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+
 import './index.css'
-import Banner from './assets/Pages/Banner'
+import App from "./App";
 
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
 
-createRoot(document.getElementById('root')).render(
+root.render(
   <StrictMode>
     <BrowserRouter>
-      <Banner />
+      <App />
     </BrowserRouter>
-  </StrictMode>,
-)
+  </StrictMode>
+);
+
