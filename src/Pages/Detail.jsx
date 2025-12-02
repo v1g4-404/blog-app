@@ -5,6 +5,11 @@ import { useParams } from "react-router-dom";
 export default function PostDetail() {
   const { id } = useParams();
   const post = posts.find(p => p.id === Number(id))
+
+  if (!post) {
+    return <div>記事が見つかりませんでした</div>
+  }
+
   return (
     <div className='mx-auto my-10 max-w-[800px] flex-col p-4'>
       <div className=''>
