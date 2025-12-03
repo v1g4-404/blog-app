@@ -3,15 +3,16 @@ import { useParams } from "react-router-dom";
 
 
 export default function PostDetail() {
-  const [posts, setPosts] = useState([])
+  const [post, setPosts] = useState(null)
   const [loading, setLoading] = useState(true)
+  const { id } = useParams();
 
   useEffect(() => {
     const fetcher = async () => {
       try {
-        const res = await fetch("https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts")
+        const res = await fetch(`https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts/${id}`)
         const data = await res.json()
-        setPosts(data.posts)
+        setPosts(data.post)
       } catch (err) {
         console.error("Errro", err);
       } finally {
@@ -20,10 +21,8 @@ export default function PostDetail() {
     }
 
     fetcher()
-  }, [])
+  }, [id])
 
-  const { id } = useParams();
-  const post = posts.find(p => p.id === Number(id))
 
   if (loading) {
     return (
@@ -34,7 +33,7 @@ export default function PostDetail() {
   }
 
   if (!post) {
-    return <div>記事が見つかりませんでした</div>
+    return <div className="text-center py-10 text-gray-500 text-lg">記事が見つかりませんでした</div>
   }
 
   return (
